@@ -12,10 +12,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 
 @Composable
-fun SecondScreen(navController: NavHostController) {
+fun SecondScreen(navController: NavHostController, backStackEntry: NavBackStackEntry) {
+    val url=backStackEntry.arguments?.getString("url")
+    val counter=backStackEntry.arguments?.getInt("counter")
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -23,9 +26,11 @@ fun SecondScreen(navController: NavHostController) {
     ) {
 
 
-        Text(text = "Second Screen", fontSize = 20.sp)
+        Text(text = "Second Screen + $url  + $counter", fontSize = 20.sp)
         Spacer(modifier = Modifier.height(20.dp))
-        Button(onClick = {navController.navigate("last")
+        Button(onClick = {
+            navController.popBackStack()
+            navController.navigate( Screen.Last.route)
 
         }) {
 

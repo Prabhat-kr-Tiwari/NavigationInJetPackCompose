@@ -27,6 +27,9 @@ fun LastScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
         Button(onClick = {
 
+//            navController.popBackStack()
+            //this will skip the two screen
+            navController.popBackStack()
             navController.popBackStack()
         }) {
 

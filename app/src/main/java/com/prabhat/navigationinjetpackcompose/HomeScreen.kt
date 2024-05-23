@@ -25,7 +25,8 @@ fun HomeScreen(navController:NavHostController) {
 
         Text(text = "Home Screen", fontSize = 20.sp)
         Spacer(modifier = Modifier.height(20.dp))
-        Button(onClick = {navController.navigate("second")
+        Button(onClick = {
+            navController.navigate( Screen.Second.route+"/www.url.com/33")
 
         }) {
 
